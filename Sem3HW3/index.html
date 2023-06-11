@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Test</title>
+    <style>
+        .active {
+            color: red;
+        }
+        p:hover {
+            color: green;
+        }
+    </style>
+    <script>
+        function askUserName() {
+            var name = prompt("Введите Ваше имя:");
+            if (name != null) {
+                document.getElementById("userName").innerHTML = "Привет " + name + "!";
+            }
+        }
+
+        function askUserAge() {
+            var age = prompt("Введите Ваш возраст:");
+            switch(true) {
+                case (age < 18):
+                    alert("Вы - несовершеннолетний.");
+                    break;
+                case (age >= 18 && age < 65):
+                    alert("Вы - совершеннолетний.");
+                    break;
+                case (age >= 65):
+                    alert("Вы - пенсионер.");
+                    break;
+                default:
+                    alert("Неверный ввод.");
+                    break;
+            }
+        }
+
+        function changeColorAndText() {
+            var textElement = document.getElementById('myText');
+            textElement.style.color = 'blue';
+            textElement.innerText = 'Вы нажали на кнопку!';
+        }
+
+        function activateItems() {
+            var listItems = document.querySelectorAll('li');
+            for (var i = 0; i < listItems.length; i++) {
+                listItems[i].classList.add('active');
+            }
+        }
+
+        window.onload = function() {
+            askUserName();
+            askUserAge();
+        }
+    </script>
+</head>
+<body>
+    <h1 id="userName"></h1>
+
+    <p id="myText">Наведите курсор!</p>
+    <button onclick="changeColorAndText()">Изменить текст и цвет</button>
+
+    <ul>
+        <li>Элемент 1</li>
+        <li>Элемент 2</li>
+        <li>Элемент 3</li>
+    </ul>
+    <button onclick="activateItems()">Активировать элементы</button>
+</body>
+</html>
